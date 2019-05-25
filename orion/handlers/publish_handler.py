@@ -22,8 +22,7 @@ class PublishHandler(BaseHandler):
     path = '/api/publish'
 
     def run(self, *args, **kwargs):
-        print(self.data)
-        if self.data is None:
+        if '_type' not in self.data:
             return self.error(status=200, message='Not a valid request')
 
         # Sometimes the client tries to send a reportLocation cmd. If server
