@@ -29,7 +29,7 @@ class PublishHandler(BaseHandler):
             return self.success(status=200)
 
         if self.data['_type'] != 'location':
-            return self.error(status=400, message='Not a location publish.')
+            return self.error(status=200, message='Not a location publish.')
 
         if self.data.get('topic'):
             _, user, device = self.data.get('topic').split('/')
